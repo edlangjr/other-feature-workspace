@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "other-feature-micro-front-end": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/other-feature-micro-front-end",
+      "sourceRoot": "projects/other-feature-micro-front-end/src",
+      "prefix": "ofmfe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/other-feature-micro-front-end",
+            "index": "projects/other-feature-micro-front-end/src/index.html",
+            "main": "projects/other-feature-micro-front-end/src/main.ts",
+            "polyfills": "projects/other-feature-micro-front-end/src/polyfills.ts",
+            "tsConfig": "projects/other-feature-micro-front-end/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/other-feature-micro-front-end/src/favicon.ico",
+              "projects/other-feature-micro-front-end/src/assets"
+            ],
+            "styles": [
+              "projects/other-feature-micro-front-end/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/other-feature-micro-front-end/src/environments/environment.ts",
+                  "with": "projects/other-feature-micro-front-end/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "other-feature-micro-front-end:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "other-feature-micro-front-end:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "other-feature-micro-front-end:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/other-feature-micro-front-end/src/test.ts",
+            "polyfills": "projects/other-feature-micro-front-end/src/polyfills.ts",
+            "tsConfig": "projects/other-feature-micro-front-end/tsconfig.spec.json",
+            "karmaConfig": "projects/other-feature-micro-front-end/karma.conf.js",
+            "assets": [
+              "projects/other-feature-micro-front-end/src/favicon.ico",
+              "projects/other-feature-micro-front-end/src/assets"
+            ],
+            "styles": [
+              "projects/other-feature-micro-front-end/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/other-feature-micro-front-end/tsconfig.app.json",
+              "projects/other-feature-micro-front-end/tsconfig.spec.json",
+              "projects/other-feature-micro-front-end/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/other-feature-micro-front-end/e2e/protractor.conf.js",
+            "devServerTarget": "other-feature-micro-front-end:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "other-feature-micro-front-end:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "other-feature-micro-front-end"
 }

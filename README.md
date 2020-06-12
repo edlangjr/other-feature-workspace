@@ -72,7 +72,11 @@ TODO: Add code to automatically import and register the component modules in the
 Adds the feature-shared-components package stored in the local npm repository to a project, adds a file to the workspace folder, and defines some dummy scripts and sets up the `husky` npm package in the workspacce package.json file.
 
 `ng generate feature-shared-components:feature-starter-service --name doStuff --path services`:
-Generates a feature-starter-service service as from the feature-shared-component collection with the specified name and path based on a predetermined template. (e.g. src/app/services/do-stuff.service.ts)
+Generates a feature-starter-service service from the feature-shared-component collection with the specified name and path based on a predetermined template. (e.g. src/app/services/do-stuff.service.ts)
+
+`ng generate feature-shared-components:feature-extended-component --name customContent`:
+Generates a feature-extended-component component from the feature-shared-component collection with the specified name and default path using the default angular commponent schematic and then adjusting to include a rubberstamp comment header. 
+(e.g. src/app/custom-content/custom-content.component.html|.scss|.spec.ts|.ts)
 
 
 

@@ -1,3 +1,0 @@
-Simple file that will be:
-  added to the root of the project workspace after npm installing this library
-Assumes this is run from workspace folder

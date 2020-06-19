@@ -14,7 +14,7 @@ custom components that are generated from another project and published to a loc
 ## Terminology
 
 **Feature** - A specific domain of functionality.  This could be a Blog, a shopping cart, or an image 
-catalog, to naame a few possibilities
+catalog, to name a few possibilities
 
 **Micro Front-End** - A web site dedicated to executing a specific feature and only that, passing control
 to another Micro Front-End in order to perform a different domain of functionality.
@@ -35,7 +35,7 @@ and used inside of another project.  Node Package Manager (npm) is based on Node
 **Project Name**: other-feature-micro-front-end
 
 **Purpose**: Simple front-end that demonstrates usage of components from shared component library built and 
-deployed to a local npm repositoryy from another workspace.
+deployed to a local npm repository from another workspace.
 
 **Prefixes**: ofmfe - Other Feature Micro Front-End
 
@@ -75,7 +75,7 @@ Adds the feature-shared-components package stored in the local npm repository to
 Generates a feature-starter-service service from the feature-shared-component collection with the specified name and path based on a predetermined template. (e.g. src/app/services/do-stuff.service.ts)
 
 `ng generate feature-shared-components:feature-extended-component --name customContent`:
-Generates a feature-extended-component component from the feature-shared-component collection with the specified name and default path using the default angular commponent schematic and then adjusting to include a rubberstamp comment header. 
+Generates a feature-extended-component component from the feature-shared-component collection with the specified name and default path using the default angular component schematic and then adjusting to include a rubberstamp comment header. 
 (e.g. src/app/custom-content/custom-content.component.html|.scss|.spec.ts|.ts)
 
 
